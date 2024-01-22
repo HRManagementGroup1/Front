@@ -3,20 +3,23 @@ var eye = document.getElementById('eye');
 
 eye.addEventListener('click',togglePass);
 
-function togglePass(){
-
-   eye.classList.toggle('active');
-
-   (pwd.type == 'password') ? pwd.type = 'text' : pwd.type = 'password';
+function togglePass() {
+  eye.classList.toggle('active');
+  (pwd.type == 'password') ? pwd.type = 'text' : pwd.type = 'password';
 }
+
+var Email="a@gmail.com";
+var Password="123";
 
 // Form Validation
 
 function checkStuff() {
   var email = document.form1.email;
   var password = document.form1.password;
-  var msg = document.getElementById('msg');
   
+  var msg = document.getElementById('msg');
+  console.log(Email);
+  console.log(email);
   if (email.value == "") {
     msg.style.display = 'block';
     msg.innerHTML = "Please enter your email";
@@ -41,7 +44,17 @@ function checkStuff() {
   } else {
     msg.innerHTML = "";
   }
+  if (Email === email.value && Password === password.value) {
+    alert("SELAM");
+    window.location.href = "/pages/main/main.html";
+    return true; // Formun submit işlemine izin ver
+  } else {
+    msg.innerHTML = "Invalid email or password";
+    return false; // Formun submit işlemine izin verme
+  }
+  
 }
+
 
 // ParticlesJS
 
@@ -156,3 +169,4 @@ particlesJS("particles-js", {
   },
   "retina_detect": true
 });
+

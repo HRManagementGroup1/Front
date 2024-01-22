@@ -5,11 +5,11 @@ const app = express();
 const port = 3000;
 
 // Statik dosyalar için projenin ana dizinini kullan
-app.use(express.static(path.join(__dirname, '')));
+app.use(express.static(path.join(__dirname, 'src')));
 
-// Ana sayfa rotası
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+// Login sayfa rotası
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, 'src', 'pages', 'login', 'login.html'));
 });
 
 app.listen(port, () => {
